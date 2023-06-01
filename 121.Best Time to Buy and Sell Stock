@@ -1,0 +1,31 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        // int[] min=new int[prices.length];
+        // min[0]=prices[0];
+        // for(int i=1;i<prices.length;i++){
+        //     if(prices[i]<min[i-1]){
+        //         min[i]=prices[i];
+        //     }else{
+        //         min[i]=min[i-1];
+        //     }
+        // }
+
+        // int max_prof=0,temp;
+        // for(int i=1;i<prices.length;i++){
+        //     temp=prices[i]-min[i];
+        //     if(temp>max_prof){
+        //         max_prof=temp;
+        //     }
+        // }
+        // return max_prof;
+        
+        //Both of them work properly work
+        
+        int max_prof=0,min_buy=Integer.MAX_VALUE;
+        for(int i=0;i<prices.length;i++){
+            min_buy=Math.min(prices[i],min_buy);
+            max_prof=Math.max(max_prof,prices[i]-min_buy);
+        }
+        return max_prof;
+    }
+}
